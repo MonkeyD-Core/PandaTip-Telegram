@@ -1,13 +1,8 @@
-#!/usr/bin/python
-#coding=utf-8
-
-
 import emoji
 from telegram.ext import Updater
 from telegram.ext import CommandHandler, CallbackQueryHandler, MessageHandler
 from telegram.ext import filters
 from telegram import ParseMode, InlineKeyboardButton, InlineKeyboardMarkup
-from PandaRPC import PandaRPC, Wrapper as RPCWrapper
 from HelperFunctions import *
 import logging
 logging.basicConfig(
@@ -28,7 +23,7 @@ _rain_queues = {
 }
 
 # Constants
-__wallet_rpc = RPCWrapper(PandaRPC(config["rpc-uri"], (config["rpc-user"], config["rpc-psw"])))
+__wallet_rpc = "/usr/bin/dogecoin-cli"
 __rain_queue_filter = filters.Filters.group & (
 		filters.Filters.text | filters.Filters.photo | filters.Filters.video | filters.Filters.reply | filters.Filters.forwarded
 	)
