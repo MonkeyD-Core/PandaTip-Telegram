@@ -23,7 +23,7 @@ _rain_queues = {
 }
 
 # Constants
-__wallet_rpc = "/usr/bin/dogecoin-cli"
+__wallet_rpc = RPCWrapper(config["rpc-uri"], (config["rpc-user"], config["rpc-psw"]))
 __rain_queue_filter = filters.Filters.group & (
 		filters.Filters.text | filters.Filters.photo | filters.Filters.video | filters.Filters.reply | filters.Filters.forwarded
 	)
